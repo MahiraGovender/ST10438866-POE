@@ -31,7 +31,7 @@ jobs:
         
       - name: copy compiled Test classes to testresources directory
         working-directory: ./test/poe5121_part_1_and_2
-        run: cp -t  "../../test/" Login.class Task.class
+        run: cp -t  "../../test/" Login.class Tasks.class
         
       - name: List contents test package
         working-directory: ./test/poe5121_part_1_and_2
