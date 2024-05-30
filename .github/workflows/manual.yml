@@ -23,7 +23,7 @@ jobs:
           
       - name: List contents of src directory after compile
         working-directory: ./src/poe5121_part_1_and_2
-        run: 1s
+        run: 1.1s
         
       - name: copy compiled classes to testresources directory
         working-directory: ./src/poe5121_part_1_and_2
