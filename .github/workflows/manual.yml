@@ -19,7 +19,7 @@ jobs:
         run: >-
           javac -cp
           "../testresources/junit-platform-console-standalone-1.6.0.jar"
-          "./poe5121_part_1_and_2/Login.java" "./poe5121_part_1_and_2/POE5121_Part_1_And_2.java" "./poe5121_part_1_and_2/Tasks.java"
+          "./poe5121_part_1_and_2/Login.java" "./poe5121_part_1_and_2/Tasks.java"
           
       - name: List contents of src directory after compile
         working-directory: ./src/poe5121_part_1_and_2
@@ -27,11 +27,11 @@ jobs:
         
       - name: copy compiled classes to testresources directory
         working-directory: ./src/poe5121_part_1_and_2
-        run: cp -t  "../../test/poe5121_part_1_and_2" Login.class POE5121_Part_1_And_2.class Tasks.class
+        run: cp -t  "../../test/poe5121_part_1_and_2" Login.class Tasks.class
         
       - name: copy compiled Test classes to testresources directory
         working-directory: ./test/poe5121_part_1_and_2
-        run: cp -t  "../../test/" Login.class POE5121_Part_1_And_2.class Task.class
+        run: cp -t  "../../test/" Login.class Task.class
         
       - name: List contents test package
         working-directory: ./test/poe5121_part_1_and_2
