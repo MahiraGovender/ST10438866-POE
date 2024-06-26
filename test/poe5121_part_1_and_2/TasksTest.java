@@ -252,5 +252,10 @@ public TasksTest() {
 
        assertEquals(taskNames, taskNames, message);
     }
+
+      @Test
+    public void testDisplayDoneTasks() {
+        
+    }
     
 }
