@@ -201,8 +201,7 @@ public class POE5121_Part_1_And_2 {
         while (optionR != 5) {
         
         //ImageIcon icon = new ImageIcon("CuteKitty.png");
-            
-        String[] optionsR = {"Display Report", "Longest Duration Task", "Search Task Name", "Search Developer", "Delete Task", "Menu"};
+        String[] optionsR = {"Display Report", "Longest Duration Task", "Search Task Name", "Search Developer", "Delete Task", "All Done Tasks", "Menu"};
         optionR = JOptionPane.showOptionDialog(null,
         null,
         "Select an option please",
@@ -237,6 +236,9 @@ public class POE5121_Part_1_And_2 {
             break;
             
             case 5:
+                task.displayDoneTasks();
+            
+            case 6:
                 //Return to menu
                 option = 0;
             break;
