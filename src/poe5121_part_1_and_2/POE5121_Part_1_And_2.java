@@ -194,23 +194,58 @@ public class POE5121_Part_1_And_2 {
         }
         break;
 
-        //coming soon
+        //Show Report
         case 1:
-        final JDialog showReport = new JDialog((Frame) null, "", true);
-        showReport.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        showReport.setSize(225,225);
-        showReport.setLocationRelativeTo(null);
-        JLabel message = new JLabel();
-        message.setIcon(new ImageIcon("ComingSoon.png"));
+          int optionR = 0;
         
-         Timer timer2 = new Timer(1500, (ActionEvent e) -> {
-            showReport.dispose();
-        });
-        timer2.setRepeats(false);
-        timer2.start();
+        while (optionR != 5) {
         
-        showReport.add(message);
-        showReport.setVisible(true);
+        //ImageIcon icon = new ImageIcon("CuteKitty.png");
+            
+        String[] optionsR = {"Display Report", "Longest Duration Task", "Search Task Name", "Search Developer", "Delete Task", "Menu"};
+        optionR = JOptionPane.showOptionDialog(null,
+        null,
+        "Select an option please",
+        WindowConstants.DISPOSE_ON_CLOSE,
+        WindowConstants.DISPOSE_ON_CLOSE,
+        icon,
+        optionsR,
+        optionsR[0]);
+        
+        switch (optionR) {
+            case 0:
+               task.displayReport();
+            break;
+            
+            case 1:
+                task.displayLongestTask();
+            break;
+            
+            case 2:
+                String searchValue = JOptionPane.showInputDialog("Enter task name to search by");
+                task.SearchTaskNames(searchValue);
+            break;
+            
+            case 3:
+                String searchValue2 = JOptionPane.showInputDialog("Enter task developer to search");
+                task.SearchDevelopers(searchValue2);
+            break;
+            
+            case 4:
+                String removeValue = JOptionPane.showInputDialog("Enter task name to delete");
+                task.RemoveTask(removeValue);
+            break;
+            
+            case 5:
+                //Return to menu
+                option = 0;
+            break;
+            
+            default:
+                System.exit(0);
+            break;
+          }
+        }
         break;
 
         //exit application
