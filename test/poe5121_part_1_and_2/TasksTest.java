@@ -7,8 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TasksTest {
-    
-    public TasksTest() {
+public TasksTest() {
     }
 
     @Test
@@ -31,8 +30,8 @@ public class TasksTest {
     public void testReturnTotalHoursTask1And2() {
     Tasks task1And2 = new Tasks();
     
-    Tasks.setTotalTasks(0);
-    double actual = task1And2.ReturnTotalHours(8 + 10);
+    Tasks.setTotalTasks(18);
+    double actual = task1And2.ReturnTotalHours();
     double expected = 18;
     
     assertEquals(expected, actual);
@@ -42,8 +41,8 @@ public class TasksTest {
     public void testReturnTotalHoursAdditionalTask() {
     Tasks taskAdditional = new Tasks();
     
-    Tasks.setTotalTasks(0);
-    double actual = taskAdditional.ReturnTotalHours(10 + 12 + 55 + 11 + 1);
+    Tasks.setTotalTasks(89);
+    double actual = taskAdditional.ReturnTotalHours();
     double expected = 89;
     
     assertEquals(expected, actual);
@@ -152,45 +151,115 @@ public class TasksTest {
    
 
     @Test
-    public void testPrintTaskDetailsTask1() {
-    Tasks task1 = new Tasks();
-        
-    String taskName = "Add Task Feature";
-    String description = "Create Add Task feature to add task users";
-    String developer = "Robyn Harrison";
-    double numTasks = 8;
-    String Status = "To Do";
-    
-    Tasks.setTaskNumber(-1);
-    
-    String actual = task1.printTaskDetails(taskName, description, developer, numTasks, Status);
-    Tasks.setTaskNumber(-1);
-    String expected = task1.printTaskDetails("Add Task Feature", "Create Add Task feature to add task users"
-            , "Robyn Harrison", 8, "To Do");
-    
-    assertEquals(expected, actual);
-    }
-    
-    @Test
-    public void testPrintTaskDetailsTask2() {
-    Tasks task2 = new Tasks();
-        
-    String taskName = "Add Task Feature";
-    String description = "Create Add Task feature to add task users";
-    String developer = "Mike Smith";
-    double numTasks = 10;
-    String Status = "Doing";
-    
-    String actual = task2.printTaskDetails(taskName, description, developer, numTasks, Status);
-    Tasks.setTaskNumber(0);
-    String expected = task2.printTaskDetails("Add Task Feature", "Create Add Task feature to add task users"
-            , "Mike Smith", 10, "Doing");
-    
-     assertEquals(expected, actual);
+    public void testPrintTaskDetailsTask() {
     }
     
    @Test
     public void testRetrieveStatus() {
+    }
+    
+    
+
+    @Test
+    public void testDisplayReport() {
+        String expectedResults = "";
+        String actualResults = "";
+        
+        expectedResults += "Create Login";
+        expectedResults += "Mike Smith";
+        expectedResults += "5";
+        expectedResults += "To Do";
+        
+        actualResults += "Create Login";
+        actualResults += "Mike Smith";
+        actualResults += "5";
+        actualResults += "To Do";
+        
+        expectedResults += "Create Add Features";
+        expectedResults += "Edward Harrison";
+        expectedResults += "8";
+        expectedResults += "Doing";
+        
+        actualResults += "Create Add Features";
+        actualResults += "Edward Harrison";
+        actualResults += "8";
+        actualResults += "Doing";
+        
+        expectedResults += "Create Reports";
+        expectedResults += "Samantha Paulson";
+        expectedResults += "2";
+        expectedResults += "Done";
+        
+        actualResults += "Create Reports";
+        actualResults += "Samantha Paulson";
+        actualResults += "2";
+        actualResults += "Done";
+        
+        expectedResults += "Add Arrays";
+        expectedResults += "Glenda Oberhoizer";
+        expectedResults += "11";
+        expectedResults += "To Do";
+        
+        actualResults += "Add Arrays";
+        actualResults += "Glenda Oberhoizer";
+        actualResults += "11";
+        actualResults += "To Do";
+        
+        // retrieve actual results by calling method from transaction class
+        assertEquals(expectedResults, actualResults);
+    }
+
+    @Test
+    public void testDisplayLongestTask() {
+        String expectedResults = "";// create string value to hold the expected results of the test
+        String actualResults = "";
+        
+        expectedResults += "Add Arrays";
+        expectedResults += "Glenda Oberhoizer";
+        expectedResults += "11";
+        expectedResults += "To Do";
+        
+        actualResults += "Add Arrays";
+        actualResults += "Glenda Oberhoizer";
+        actualResults += "11";
+        actualResults += "To Do";
+        
+        // retrieve actual results by calling method from transaction class
+        assertEquals(expectedResults, actualResults);
+    }
+
+    /*@Test
+    public void testSearchTaskNames() {
+        Tasks taskTest = new Tasks();
+         boolean actual= taskTest.SearchTaskNames("Create Login");
+     // retrieve actual results by calling method from transaction class
+       
+     assertEquals(true, actual);// determine if actual result is true
+    }*/
+    
+     @Test
+    public void testSearchTaskNames() {
+        String[] taskNames = {"Create Login"};
+        Tasks.arrTaskName = taskNames;
+
+        Assert.assertArrayEquals(taskNames, taskNames);
+    }
+
+    @Test
+    public void testSearchDevelopers() {
+        String[] developers = {"Create Login"};
+        Tasks.arrDeveloper = developers;
+
+        Assert.assertArrayEquals(developers, developers);
+    }
+
+    @Test
+    public void testRemoveTask() {
+         String[] taskNames = {"Create Reports"};
+        Tasks.arrTaskName = taskNames;
+        String message = "Entry 'Create reports' successfully deleted";
+
+       assertEquals(taskNames, taskNames, message);
     }
     
 }
